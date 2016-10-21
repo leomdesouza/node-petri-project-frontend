@@ -1,5 +1,3 @@
-'use strict';
-
 
 angular.module('authService', [])
 
@@ -10,13 +8,6 @@ angular.module('authService', [])
         var authFactory = {};
 
         authFactory.login = function(username, password){
-
-            var data = {
-                username: username,
-                password: password
-            };
-
-            console.log(data);
 
             return $http.post(api_host + '/clientActions/login', { username: username, password: password }).success(function(data){
                 AuthToken.setToken(data.token);
